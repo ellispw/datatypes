@@ -36,6 +36,7 @@ type dt_queue_dequeue_##type(struct dt_queue_##type *q) { \
 	memcpy(new, &q->data[1], sizeof *q->data * q->queue_size); \
 	q->data = realloc(q->data, sizeof *q->data * q->queue_size); \
 	memcpy(q->data, new, sizeof *q->data * q->queue_size); \
+	free(new); \
 	return res; \
 }
 
