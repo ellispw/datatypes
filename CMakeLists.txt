@@ -9,4 +9,6 @@ add_executable(datatypes
 	src/linkedlist/linkedlist.h
 	src/stack/stack.c
 	src/stack/stack.h
+	src/queue/queue.c
+	src/queue/queue.h
 )

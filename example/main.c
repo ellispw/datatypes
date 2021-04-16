@@ -13,7 +13,7 @@ int main(void) {
 
 	struct dt_list_node_int *temp = list->head;
 	while (temp) {	
-		printf("%d\n", temp->data);
+		printf("List: %d\n", temp->data);
 		temp = temp->next;
 	}
 
@@ -23,9 +23,20 @@ int main(void) {
 	dt_stack_push_int(stack, 10);
 	dt_stack_push_int(stack, 20);
 
-	printf("%d\n", dt_stack_peek_int(stack));
+	printf("Stack: %d\n", dt_stack_peek_int(stack));
 	dt_stack_pop_int(stack);
-	printf("%d\n", dt_stack_peek_int(stack));
+	printf("Stack: %d\n", dt_stack_peek_int(stack));
 
 	dt_destroy_stack_int(stack);
+
+	struct dt_queue_int *queue = dt_create_queue_int();
+	dt_queue_enqueue_int(queue, 10);
+	dt_queue_enqueue_int(queue, 20);
+	
+	printf("Queue: %d\n", dt_queue_front_int(queue));
+	dt_queue_dequeue_int(queue);
+	
+	printf("Queue: %d\n", dt_queue_front_int(queue));
+
+	dt_destroy_queue_int(queue);
 }
