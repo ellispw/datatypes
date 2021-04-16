@@ -7,4 +7,6 @@ add_executable(datatypes
 	src/types.h
 	src/linkedlist/linkedlist.c
 	src/linkedlist/linkedlist.h
+	src/stack/stack.c
+	src/stack/stack.h
 )
