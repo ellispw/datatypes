@@ -2,6 +2,7 @@
 #define DT_STACK_H
 
 #include <stdlib.h>
+#include <string.h>
 
 #define DT_STACK_DEFINE_STACK(type) \
 struct dt_stack_##type { \

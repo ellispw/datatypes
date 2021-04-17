@@ -24,6 +24,9 @@ size_t dt_queue_enqueue_##type(struct dt_queue_##type *q, type v) { \
 
 #define DT_QUEUE_DEFINE_DEQUEUE_IMPL(type) \
 type dt_queue_dequeue_##type(struct dt_queue_##type *q) { \
+	if (q->queue_size == 0) { \
+		return q->data[0]; \
+	} \
 	type res = q->data[0]; \
 	q->queue_size = q->queue_size - 1; \
 	if (q->queue_size < 1) { \

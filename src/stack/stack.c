@@ -24,8 +24,16 @@ size_t dt_stack_push_##type(struct dt_stack_##type *s, type v) { \
 
 #define DT_STACK_DEFINE_POP_IMPL(type) \
 type dt_stack_pop_##type(struct dt_stack_##type *s) { \
+	if (s->stack_size == 0) { \
+		return s->data[0]; \
+	} \
 	type res = s->data[s->stack_size - 1]; \
 	s->stack_size = s->stack_size - 1; \
+	if (s->stack_size < 1) { \
+		s->data = realloc(s->data, sizeof *s->data); \
+		memset(s->data, 0, sizeof *s->data); \
+		return res; \
+	} \
 	s->data = realloc(s->data, sizeof *s->data * s->stack_size); \
 	return res; \
 }
