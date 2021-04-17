@@ -3,7 +3,7 @@
 #define DT_STACK_DEFINE_CREATE_IMPL(type) \
 struct dt_stack_##type *dt_create_stack_##type() { \
 	struct dt_stack_##type *res = malloc(sizeof *res); \
-	res->data = malloc(sizeof res->data); \
+	res->data = malloc(sizeof *res->data); \
 	res->stack_size = 0; \
 	return res; \
 }
